@@ -1,4 +1,5 @@
-const API_URL = '/api';
+const API_URL = import.meta.env.VITE_API_URL || '/api';
+console.log('API_URL:', API_URL);
 
 export const registerUser = async (data) => {
   const res = await fetch(`${API_URL}/auth/register`, {

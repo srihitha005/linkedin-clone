@@ -12,13 +12,11 @@ const app = express();
 
 // --- Middlewares ---
 app.use(express.json());
-app.use(
-  cors({
-    origin: ["http://localhost:3000"], // Vite frontend
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: 'http://localhost:5173', // for local dev
+  credentials: true,
+}));
+
 
 // --- API routes ---
 app.use("/api/auth", authRoutes);
