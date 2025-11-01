@@ -1,0 +1,465 @@
+:root {
+  /* Enhanced color palette */
+  --primary: #0a66c2;
+  --primary-light: #e8f3ff;
+  --primary-dark: #004182;
+  --background: #f3f2ef;
+  --surface: #ffffff;
+  --text: #191919;
+  --text-light: #666666;
+  --border: #e0e0e0;
+  --success: #057642;
+  --error: #cc1016;
+
+  /* Breakpoints */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  
+  /* Improved shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-focus: 0 0 0 3px rgba(10, 102, 194, 0.2);
+  
+  /* Refined measurements */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --max-width: 1200px;
+  --header-height: 64px;
+  
+  /* Smooth transitions */
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--background);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Enhanced Navbar */
+.navbar {
+  background-color: var(--surface);
+  padding: 0 2rem;
+  height: var(--header-height);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Improved Post Card */
+.post-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+  margin-bottom: 1.5rem;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.post-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Enhanced Create Post Area */
+.create-post {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.create-post textarea {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  font-size: 1rem;
+  min-height: 120px;
+  width: 100%;
+  resize: none;
+  transition: var(--transition);
+}
+
+.create-post textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: var(--shadow-focus);
+}
+
+/* Refined Button Styles */
+button {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.primary-button {
+  background: var(--primary);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.primary-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+/* Polished Auth Form */
+.auth-form {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg);
+  max-width: 400px;
+  margin: 4rem auto;
+  border: 1px solid var(--border);
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.auth-form input:focus {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-focus);
+  outline: none;
+}
+
+/* Enhanced Loading State */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+  position: relative;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(3px);
+  border-radius: inherit;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 0.5; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+  
+  .post-card {
+    padding: 1rem;
+  }
+  
+  .auth-form {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+}
+
+
+/* Main container for responsive layout */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Enhanced grid system */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+/* Improved responsive styles */
+@media (max-width: 576px) {
+  :root {
+    --header-height: 56px;
+  }
+
+  .navbar {
+    padding: 0 0.75rem;
+  }
+
+  .post-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .create-post {
+    padding: 1rem;
+  }
+
+  .create-post textarea {
+    min-height: 100px;
+  }
+
+  button {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .auth-form {
+    margin: 1rem;
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .post-card {
+    padding: 1.25rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 993px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .post-feed {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+}
+
+/* Responsive typography */
+@media (max-width: 576px) {
+  html {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Responsive navigation */
+@media (max-width: 576px) {
+  .navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    border-top: 1px solid var(--border);
+    border-bottom: none;
+  }
+
+  .navbar-logo {
+    font-size: 1.25rem;
+  }
+}
+
+/* Responsive form elements */
+@media (max-width: 576px) {
+  .auth-form input,
+  .create-post textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 0.875rem;
+  }
+}
+
+/* Responsive image handling */
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) {
+  .post-card:hover {
+    transform: none;
+    box-shadow: var(--shadow);
+  }
+
+  button:hover {
+    transform: none;
+  }
+
+  .post-card {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Better spacing for mobile */
+@media (max-width: 576px) {
+  .post-header {
+    gap: 0.75rem;
+  }
+
+  .post-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .auth-form {
+    box-shadow: none;
+    border-radius: var(--radius);
+  }
+}
+
+
+/* ...existing code... */
+
+/* Color palette & layout */
+:root{
+  --primary:#0d6efd; /* bootstrap primary */
+  --accent:#6610f2;
+  --muted:#6c757d;
+  --bg-start:#eef2ff;
+  --bg-end:#e6fffa;
+  --card-bg: rgba(255,255,255,0.85);
+  --glass-border: rgba(255,255,255,0.6);
+}
+
+/* Page background */
+body{
+  background: linear-gradient(135deg,var(--bg-start), var(--bg-end));
+  min-height:100vh;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Navbar custom */
+.navbar-custom{
+  background: linear-gradient(90deg,var(--primary), var(--accent));
+  box-shadow: 0 6px 18px rgba(10, 25, 47, 0.08);
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link,
+.navbar-custom .navbar-text{
+  color: #fff !important;
+}
+.navbar-custom .btn-danger{
+  background:#ff6b6b;
+  border: none;
+}
+
+/* Cards / forms */
+.card-glass{
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(13, 38, 59, 0.08);
+}
+
+/* Auth card layout */
+.auth-wrapper{
+  min-height:70vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.auth-card .card-header{
+  background: linear-gradient(90deg, rgba(13,110,253,0.95), rgba(102,16,242,0.95));
+  color:#fff;
+  font-weight:600;
+  border-top-left-radius:12px;
+  border-top-right-radius:12px;
+}
+
+/* Buttons */
+.btn-primary.custom{
+  background: linear-gradient(90deg,var(--primary), var(--accent));
+  border: none;
+  box-shadow: 0 6px 18px rgba(13,110,253,0.18);
+}
+
+/* Post card */
+.post-card{
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(10,25,47,0.06);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* small utilities */
+.avatar-circle{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  color:var(--primary);
+  font-weight:700;
+  box-shadow: 0 4px 12px rgba(10,25,47,0.06);
+}
