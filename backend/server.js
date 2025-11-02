@@ -12,7 +12,16 @@ const app = express();
 
 // --- Middlewares ---
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "https://zippy-daifuku-a78868.netlify.app",
+      "http://localhost:5173"
+    ],
+    credentials: true
+  })
+);
+
 
 
 // --- API routes ---
