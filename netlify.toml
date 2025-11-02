@@ -1,9 +1,0 @@
-[build]
-  base = "frontend"
-  command = "npm run build"
-  publish = "frontend/dist"
-
-[build.environment]
-  NODE_VERSION = "18"
-  CI = "false"
-  VITE_API_URL = "http://localhost:5000/api"
